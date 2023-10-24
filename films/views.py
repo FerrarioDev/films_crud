@@ -22,11 +22,20 @@ class FilmDetailView(FilmBaseView, DetailView):
     model = Film
     template_name = 'films/film_detail.html'
     context_object_name = 'film'
-    def get_queryset(self):
-        query = super(FilmDetailView, self).get_queryset()
-        return query.filter(published=True)
+
     
 class FilmCreateView(FilmBaseView, CreateView):
     model = Film
     template_name = 'films/film_form.html'
     fields = '__all__'
+
+class FilmDeleteView(FilmBaseView, DeleteView):
+    model = Film
+    template_name = 'films/film_confirm_delete.html.html'
+    success_url = reverse_lazy('films:all')
+
+class FilmUpdateView(FilmBaseView, UpdateView):
+    model = Film
+    template_name = 'films/film_update.html'
+    fields = '__all__'
+    success_url = reverse_lazy('films:all')

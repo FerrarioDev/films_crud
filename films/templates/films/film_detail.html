@@ -19,7 +19,9 @@
     <dt>Genre:</dt>
     <dd>{{ film.genre }}</dd>
   </dl>
-
+  
+  <a href="{% url 'films:film_update' film.pk %}">Update Film</a>
+  <a href="{% url 'films:film_delete' film.pk %}">Delete Film</a>
   <a href="{% url 'films:all' %}">Back to Film List</a>
   
 {% endblock %}
