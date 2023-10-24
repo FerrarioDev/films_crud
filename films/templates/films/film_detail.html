@@ -1,0 +1,25 @@
+{% extends "base.html" %} 
+
+{% block content %}
+  <h2>Film Details</h2>
+
+  <dl>
+    <dt>Title:</dt>
+    <dd>{{ film.title }}</dd>
+
+    <dt>Length:</dt>
+    <dd>{{ film.length }} minutes</dd>
+
+    <dt>Year:</dt>
+    <dd>{{ film.year }}</dd>
+
+    <dt>Score:</dt>
+    <dd>{{ film.score }}</dd>
+
+    <dt>Genre:</dt>
+    <dd>{{ film.genre }}</dd>
+  </dl>
+
+  <a href="{% url 'films:all' %}">Back to Film List</a>
+  
+{% endblock %}

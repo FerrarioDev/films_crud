@@ -13,16 +13,20 @@ class FilmBaseView(View):
 
 class FilmListView(FilmBaseView, ListView):
     model = Film
-    template_name = 'film_list.html'
+    template_name = 'films/film_list.html'
     context_object_name = 'film_list'
     def get_queryset(self):
         return self.model.objects.all()
 
 class FilmDetailView(FilmBaseView, DetailView):
     model = Film
-    template_name = 'film_detail.html'
+    template_name = 'films/film_detail.html'
     context_object_name = 'film'
     def get_queryset(self):
         query = super(FilmDetailView, self).get_queryset()
         return query.filter(published=True)
     
+class FilmCreateView(FilmBaseView, CreateView):
+    model = Film
+    template_name = 'films/film_form.html'
+    fields = '__all__'
